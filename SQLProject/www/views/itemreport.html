@@ -1,0 +1,176 @@
+<div class="panel panel-default" ng-init="initItemReport()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Item Search</h3>
+  </div>
+  <div class="panel-body">
+
+<p style="color:red" ng-if="successresult == 'on'">Sucessfully submit action</p>
+
+<p  style="color:red" ng-if="successresult == 'off'">Failed to submit action</p>
+
+
+      <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Input Request Quantity</h4>
+                  </div>
+                  <div class="modal-body edit-content">
+                        <input type="number" class="form-control" ng-model="newrequest.requestedqty" required>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary"data-dismiss="modal" ng-click="submitrequest()">Submit</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Update Quantity</h4>
+                  </div>
+                  <div class="modal-body edit-content">
+                        <input type="number" class="form-control" ng-model="updaterequest.numberofunits" required>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary"data-dismiss="modal" ng-click="updateqty()">Submit</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Item Name</h4>
+        <input type="text" class="form-control" id="itemDesc" placeholder="item name or description" ng-model="item.searchstring"/>   
+      </div>
+
+      <div class="col-md-6">
+        <h4>Select Filter</h4>
+        <input type="radio" value="storagetype" id="storagetype"  ng-model="filter" > Storage Type   
+        <input type="radio" value="categoryname" id="categoryname"  ng-model="filter" > Category name  
+        <input type="radio" value="subcategoryname" id="subcategoryname"  ng-model="filter" > Subcategory name  
+        <input type="radio" value="expirationdate" id="expirationdate"  ng-model="filter" > Expirationdate              
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3" ng-if ="filter == 'storagetype'">
+        <h4>Storage Type</h4>
+        <input type="radio" value="Dry Good" id="storagetype"  ng-model="item.storagetype" > Dry Good
+        <input type="radio" value="Refrigerated" id="storagetype"  ng-model="item.storagetype" > Refrigerated
+        <input type="radio" value="Frozen" id="storagetype"  ng-model="item.storagetype" > Frozen   
+
+      </div>
+ 
+      <div class="col-md-3" ng-if ="filter == 'categoryname'">
+        <h4>Category</h4>
+          <input type="radio" value="Food" id="categoryname"  ng-model="item.categoryname" > Food
+          <input type="radio" value="Supply" id="categoryname"  ng-model="item.categoryname" > Supplies     
+      </div>
+
+
+
+      <div class="col-md-12" ng-if ="filter == 'subcategoryname'">
+        <h4>Subcategory name </h4>
+
+      
+                <input type="radio"  value="Vegetables"id="subcategoryname"  ng-model="item.subcategoryname" >Vegetables
+                <input type="radio"  value="nuts"id="subcategoryname"  ng-model="item.subcategoryname" >nuts/grains/beans
+                <input type="radio"  value="Meat"id="subcategoryname"  ng-model="item.subcategoryname" >Meat/seafood
+                <input type="radio"  value="Dairy"id="subcategoryname"  ng-model="item.subcategoryname" >
+                Dairy/eggs
+                <input type="radio"  value="Sauce"id="subcategoryname"  ng-model="item.subcategoryname" >Sauce/Condiment/Seasoning
+                <input type="radio"  value="Juice"id="subcategoryname"  ng-model="item.subcategoryname" >Juice/Drink
+            
+    
+              <input type="radio"  value="Personal hygiene"id="subcategoryname"  ng-model="item.subcategoryname" >Personal hygiene
+              <input type="radio"  value="Clothing"id="subcategoryname"  ng-model="item.subcategoryname" >
+             Clothing
+              <input type="radio"  value="Shelter"id="subcategoryname"  ng-model="item.subcategoryname" >Shelter
+              <input type="radio"  value="other"id="subcategoryname"  ng-model="item.subcategoryname" >other
+        
+      </div>
+
+   
+
+   
+      <div class="col-md-4" ng-if ="filter == 'expirationdate'">
+        <h4>Expiration Date From</h4>
+        <input type="text" placeholder="2017-01-01" id="expirationdatefrom" class="form-control" ng-model="item.expirationdatefrom" required>
+      </div>
+
+      <div class="col-md-4" ng-if ="filter == 'expirationdate'">
+        <h4>Expiration Date To</h4>
+        <input type="text" placeholder="2017-05-01" id="expirationdateto" class="form-control" ng-model="item.expirationdateto">
+      </div>
+    </div>
+<br>
+    <div class="row">
+
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary float-left" ng-click="searchItem()">Search</button>
+      </div> 
+    </div>
+     
+    <hr/>
+    <div class="row">
+    
+      <div class="col-md-12">
+    <h4>Item Inventory:</h4>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Number of Units</th>
+              <th>Storage Type</th>
+              <th>Category</th>
+              <th>Subcategory</th>
+              <th>Expiration Date</th>
+              <th>Owner Status</th>
+              <th>Request/Update</th>
+              <th>Delete </th>
+             
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="ite in itemSearchResult">
+              <td>{{ite.name}}</td>
+              <td>{{ite.numberofunits}}</td>
+              <td>{{ite.storagetype}}</td>
+              <td>{{ite.categoryname}}</td>
+              <td>{{ite.subcategoryname}}</td>
+              <td>{{ite.expirationdate}}</td>
+              <td ng-if="ite.selfSite">Own</td>
+              <td ng-if="!ite.selfSite">not Own</td>
+              <td ng-if="!ite.selfSite">
+                <button type="button" class="btn btn-rimary float-left" data-id= "ite.bank_id" data-toggle="modal" data-target="#myModal" ng-click="storerqsid(ite.bank_id,ite.item_id)">Request</button>
+              </td>
+              <td ng-if="ite.selfSite">              
+               <button type="button" class="btn btn-rimary float-left" data-id= "ite.bank_id" data-toggle="modal" data-target="#myModal2"ng-click="updateNumber(ite.item_id)">Update Number</button>
+              </td>
+              <td ng-if="!ite.selfSite">Not Avaiable</td>
+              <td ng-if="ite.selfSite"> 
+               <button type="button" class="btn btn-rimary float-left" ng-click="deleteitem(ite.item_id)">Delete</button>
+              </td>
+
+
+            </tr>
+          </tbody>
+        </table>
+    </div>
+      </div>
+</div>
+
+
+  </div>

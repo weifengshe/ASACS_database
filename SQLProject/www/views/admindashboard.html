@@ -1,0 +1,87 @@
+<html ng-app="adminApp">
+
+<head>
+
+
+    <title>Admin Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/simple-sidebar.css" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+
+
+
+
+</head>
+
+<body>
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div ng-if='!!loggedInUser && loggedInUser.userName != null' id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a ui-sref="welcome">Welcome</a>
+                </li>
+
+                <li>
+                    <a ui-sref="sitemanagement">Site Management</a>
+                </li>
+                <li>
+                    <a ui-sref="itemmanagement">Item Management</a>
+                </li>
+                <li>
+                    <a ui-sref="login">Log Out</a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <!-- Page Content -->
+
+        <div ui-view>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+
+        <script type="text/javascript" src="../bower_components/angular-ui-sortable/sortable.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+
+
+    <script src="../adminapp.js"></script>
+
+    <script src="../controllers/admindashboard.js"></script>
+
+
+</body>
+
+</html>

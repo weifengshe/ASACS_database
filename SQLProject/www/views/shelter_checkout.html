@@ -1,0 +1,49 @@
+<div class="panel panel-default" >
+  <div class="panel-heading">
+    <h3 class="panel-title">Shelter Check Out</h3>
+  </div>
+  <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-6">
+          <form role="form" >
+
+          <div class="form-group">
+              <label for="hoursoperation"> Male Bunk</label>
+              <input type="text" id="malebunk" ng-init="checkout.male='0'" class="form-control" ng-model="checkout.male" >
+            </div>
+
+
+        <div class="form-group">
+              <label for="hoursoperation">Female Bunk</label>
+              <input type="text" id="femalebunk" class="form-control"  ng-init="checkout.female='0'"ng-model="checkout.female" >
+            </div>
+
+
+        <div class="form-group">
+              <label for="hoursoperation">Mix Bunk</label>
+              <input type="text" id="mixbunk" class="form-control" ng-init="checkout.mix='0'"ng-model="checkout.mix" >
+            </div>
+
+        <div class="form-group">
+              <label for="hoursoperation">Room</label>
+              <input type="text" id="room" class="form-control" ng-init="checkout.availableroom='0'"ng-model="checkout.availableroom" >
+            </div>
+
+
+
+
+            <button class="btn btn-default" type="submit"  ng-click="shelterCheckout()" >Check Out</button>
+           
+          </form>
+        </div>
+       </div>
+
+
+
+  </div>
+</div>
+
+
+
+

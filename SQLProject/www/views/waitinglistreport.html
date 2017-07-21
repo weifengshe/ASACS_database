@@ -1,0 +1,51 @@
+<div class="panel panel-default"ng-init="startsort()" >
+  <div class="panel-heading">
+    <h3 class="panel-title">Waiting List Report</h3>
+  </div>
+  <div class="panel-body">
+<p style="color:red" ng-if="successresult == 'on'">Sucessfully submit action</p>
+
+<p  style="color:red" ng-if="successresult == 'off'">Failed to cancel</p>
+    <div class="row">   
+      <div class="col-md-12">
+          <div ng-if="list.length == 0">
+            <h4>No client</h4>
+          </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Client Name</th>
+              <th>Rank</th>                  
+              <th>idnumber</th>
+              <th>description</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+
+
+          <tbody ng-if="list.length != 0"ui-sortable="sortableOptions" ng-model="list" >
+            <tr ng-repeat="waiting in list">
+              <td>{{waiting.fullname}}</td>
+              <td>{{waiting.rank}}</td>  
+              <td>{{waiting.idnumber}}</td>
+              <td>{{waiting.description}}</td>
+              <td>
+                <button type="button" class="btn btn-rimary float-left" ng-click="removeWaiting(waiting.id)">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+
+
+
+
+        </table>
+        </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+

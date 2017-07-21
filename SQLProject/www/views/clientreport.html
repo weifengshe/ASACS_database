@@ -1,0 +1,133 @@
+<div class="panel panel-default" ng-init="initClientReport()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Client Report</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="clientDesc" ng-model="clientSearchString" />
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary float-left" ng-click="searchClient()">Search</button>
+      </div>
+      <div class="col-md-3">
+        <a ui-sref="sitemanagement.addclient"><button type="submit" class="btn btn-primary float-left" >Add New Client</button></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <p class="text-danger" ng-if="clientSearchError && clientSearchError != ''"> *{{clientSearchError}}</p>
+      </div>
+    </div>
+
+
+
+    <hr/>
+    <div class="row">
+      <div class="col-10">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>ID# </th>
+              <th>Description</th>
+              <th>Phone</th>
+              <th> </th>
+              <th> </th>
+              <th> </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <div ng-if="clientReport.length == 0 || clientReport.length > 4"></div>
+            <tr ng-repeat="client in clientSearchResult">
+
+              <td>{{client.fullname}}</td>
+              <td>{{client.idnumber}}</td>
+              <td>{{client.description}}</td>
+              <td>{{client.phonenumber}}</td>
+
+              <td>
+                <button type="button" class="btn btn-rimary float-left" ng-click="getClientReport($index)">Get Report</button>
+              </td>
+
+              <td>
+                <button type="button" class="btn btn-rimary float-left" ng-click="checkInClient($index)">Check In</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-rimary float-left" ng-click="addWaitingList($index)">Add to Waiting List</button>
+              </td>
+
+              <td>
+                <button type="button" class="btn btn-rimary float-left" ng-click="editClient($index)">Edit Client</button>
+              </td>
+
+
+
+            </tr>
+
+          </tbody>
+        </table>
+        <div ng-if="clientSearchResult.length == 0">
+          <h4>No client</h4>
+        </div>
+      </div>
+    </div>
+    <hr/>
+
+    <div class="row">
+      <div class="col-lg-7">
+        <h3>Activities:</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Log Time</th>
+
+              <th>Service</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="rep in clientReport">
+              <td>{{rep.fullname}}</td>
+              <td>{{rep.description}}</td>
+              <td>{{rep.logtime}}</td>
+              <td>{{rep.service}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div ng-if="clientReport.length == 0">
+          <h4>No activity to display</h4>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <h3>On Waitlists:</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Wait @Site</th>
+              <th>Self Site</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="wl in clientWL">
+              <td>{{wl.rank}}</td>
+              <td>{{wl.waitatsite}}</td>
+              <td>{{wl.selfSite}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div ng-if="clientReport.length == 0">
+          <h4>No activity to display</h4>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+</div>

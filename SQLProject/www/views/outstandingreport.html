@@ -1,0 +1,145 @@
+<div class="panel panel-default" ng-init="getOutReport()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Outstanding Report</h3>
+  </div>
+  <div class="panel-body">
+<p style="color:red" ng-if="successresult == 'on'">Sucessfully submit action</p>
+
+<p  style="color:red" ng-if="successresult == 'off'">Failed to submit action</p>
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Input Number</h4>
+            </div>
+            <div class="modal-body edit-content">
+                  <input type="number" class="form-control" ng-model="partialqty" required>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"data-dismiss="modal" ng-click="partial()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="row">   
+
+        <div class="col-md-2">
+        <label>Sort Filter</label>
+        </div>
+      <div class="col-md-2">
+
+                <a  ng-click="refreshout( 'storagetype')">
+                  Storage Type  
+                  <span ng-show="sortType == 'storagetype'" class="fa fa-caret-up"></span>
+               
+                </a>
+      </div>
+
+      <div class="col-md-2">
+
+                <a  ng-click="refreshout( 'categoryname')">
+                  Category
+     
+                   <span ng-show="sortType == 'categoryname'" class="fa fa-caret-up"></span>
+                </a>
+      </div>
+
+      <div class="col-md-2">
+
+                <a  ng-click="refreshout( 'subcategoryname')">
+                 Subcategory
+              
+                   <span ng-show="sortType == 'subcategoryname'" class="fa fa-caret-up"></span>
+                </a>
+      </div>
+
+      <div class="col-md-2">
+
+                <a ng-click="refreshout( 'requestedqty')">
+                  Requestedqty
+      
+                   <span ng-show="sortType == 'requestedqty'" class="fa fa-caret-up"></span>
+                </a>
+      </div>
+    </div>
+<hr>
+
+    <div class="row">   
+      <div class="col-md-12">
+        <table class="table">
+           <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Storage Type</th>                  
+              <th>Category</th>
+              <th>Subcategory</th>
+              <th>Number of Units</th>
+
+              <th>Requestedqty</th>
+              <th>Fulfillqty</th>
+              <th>Status</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+                 <tbody>
+            <tr ng-repeat="report in outReport ">
+              <td>{{report.name}}</td>
+ 
+              <td>{{report.storagetype}}</td>
+              <td>{{report.categoryname}}</td>
+              <td>{{report.subcategoryname}}</td>
+             <td ng-if="report.numberofunits <= report.requestedqty && report.status=='pending' "><font color="red">{{report.numberofunits}}</font></td>
+              <td ng-if="report.numberofunits <= report.requestedqty && report.status=='closed' ">{{report.numberofunits}}</td>
+              <td ng-if="report.numberofunits > report.requestedqty ">{{report.numberofunits}}</td>
+
+
+              <td>{{report.requestedqty}}</td>
+               <td>{{report.fulfillqty}}</td>
+
+              <td>{{report.status}}</td>
+
+              <td ng-if="report.status == 'closed' ">
+                Not available
+              </td>
+
+              <td ng-if="report.status == 'pending' ">
+                <button type="button" class="btn btn-rimary float-left" ng-click="accept(report.requestid,report.requestedqty,report.item_id)">FULL</button>
+              </td>
+              <td ng-if="report.status == 'closed' ">
+                Not available
+              </td>            
+             <td ng-if="report.status == 'pending' ">
+                <button type="button" class="btn btn-rimary float-left" data-id= "report.requestid"data-toggle="modal" data-target="#myModal" ng-click="storeid(report.requestid,report.item_id)">PARTIAL</button>
+              </td>
+              <td ng-if="report.status == 'closed' ">
+                Not available
+              </td>            
+              <td ng-if="report.status == 'pending' ">
+                <button type="button" class="btn btn-rimary float-left" ng-click="deny(report.requestid)">UNABLE</button>
+              </td>
+
+
+
+
+            </tr>
+          </tbody>
+
+
+
+        </table>
+    </div>
+ </div>
+</div>
+</div>
+

@@ -1,0 +1,43 @@
+<div class="panel panel-default" ng-init="getReport()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Meal Report</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+    	<div class="col-md-6">
+    		<h4>Meal Remaining</h4>
+              <p>{{mealRemain}}</p>
+    	</div>
+    </div>
+    <div class="row">
+      	<div class="col-md-6">
+   			<h4>Donation Information</h4>
+   		</div>
+	 </div>
+      <div class="row">
+      	<div class="col-md-6">
+     <table class="table">
+    <thead>
+      <tr>
+        <th>Vegetable Required</th>
+        <th>Protein Required</th>
+        <th>Nuts Required</th>
+      </tr>
+    </thead>
+    <tbody>
+ 
+      <tr>
+        <td>{{vegetable}}</td>
+        <td>{{protein}}</td>
+        <td>{{nuts}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+   		</div>
+	</div>
+
+
+
+  </div>
+</div>

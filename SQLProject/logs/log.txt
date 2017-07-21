@@ -1,0 +1,2 @@
+[2017-04-18 11:58:26.461] [INFO] normal - SELECT * FROM foodbank WHERE bank_id = '3'
+[2017-04-18 11:58:27.098] [INFO] normal - ::1 - - "POST /api/item HTTP/1.1" 200 29601 "http://localhost:3000/views/admindashboard.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36"

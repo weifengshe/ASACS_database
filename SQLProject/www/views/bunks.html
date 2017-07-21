@@ -1,0 +1,48 @@
+<div class="panel panel-default" ng-init="getBunks()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Bunks/Room Report</h3>
+  </div>
+  <div class="panel-body">
+      <div class="row">
+      	<div class="col-md-12">
+          <div ng-if="shelters.length == 0">
+ 
+              <p class="lead">“Sorry, all shelters are currently at maximum capacity.”</p>
+          </div>
+
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Site Name</th>
+                <th>Location</th>
+                <th>Phone Number</th>
+                <th>Hours</th>
+                <th>conditions</th>
+                <th>Female bunk</th>
+                <th>Male bunk</th>
+                <th>Mixedbunk</th>
+                <th>Room</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr ng-repeat="shelter in shelters">
+                <td>{{shelter.siteName}}</td>
+                <td>{{shelter.locations}}</td>
+                <td>{{shelter.phoneNumber}}</td>
+                <td>{{shelter.hours}}</td>
+                <td>{{shelter.conditions}}</td>
+                <td>{{shelter.femaleBunk}}</td>
+                <td>{{shelter.maleBunk}}</td>
+                <td>{{shelter.mixedBunk}}</td>
+                <td>{{shelter.room}}</td>
+               </tr>
+              
+            </tbody>
+          </table>
+       
+   		</div>
+	</div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="panel panel-default" ng-init="getService()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Service Panel</h3>
+  </div>
+  <div class="panel-body">
+
+      <div class="row">
+      	<div class="col-md-6">
+     <table class="table">
+    <thead>
+      <tr>
+        <th>Service Name</th>
+        <th>Status</th>
+        <th> Add / Delete Service </th>
+        <th>Modification</th>
+      </tr>
+    </thead>
+    <tbody>
+
+     <tr>
+        <td>Shelter</td>
+
+  
+            <td ng-if="shelterState == 'Off'">Off</td>
+            <td ng-if="shelterState == 'Off'"><a ui-sref="sitemanagement.addshelter" >Add</a></td>  
+ 
+            <td ng-if="shelterState == 'On'">On</td>
+            <td ng-if="shelterState == 'On' && count > 1"><a href="" ng-click="deleteShelter()">Delete</a></td>  
+           <td ng-if="shelterState == 'On' && count== 1">Not Available</td>  
+            <td ng-if="shelterState == 'Off'">Not Available </td>
+        <td ng-if="shelterState == 'On'"><a ui-sref="sitemanagement.editshelter" > Edit </a></td>
+      </tr>
+
+
+      <tr>
+        <td>Food Bank</td>
+  
+            <td ng-if="foodbankState === 'Off' ">Off</td>
+            <td ng-if="foodbankState === 'Off' "><a href="" ng-click="addFoodbank()">Add</a></td>  
+ 
+            <td ng-if="foodbankState === 'On' ">On</td>
+            <td ng-if="foodbankState === 'On' && count > 1 "><a href="" ng-click="deleteFoodbank()">Delete</a></td>  
+            <td ng-if="foodbankState === 'On' && count== 1">Not Available</td> 
+            <td> Not Available </td>
+      </tr>
+
+      <tr>
+        <td>Food Pantry</td>
+  
+            <td ng-if="foodpantryState == 'Off'">Off</td>
+            <td ng-if="foodpantryState == 'Off'"><a ui-sref="sitemanagement.addfoodpantry" >Add</a></td>  
+ 
+            <td ng-if="foodpantryState == 'On'">On</td>
+            <td ng-if="foodpantryState === 'On' && count > 1"><a href="" ng-click="deleteFoodpantry()">Delete</a></td>  
+              <td ng-if="foodpantryState === 'On' && count== 1">Not Available</td> 
+            <td ng-if="foodpantryState == 'Off'">Not Available </td>
+            <td ng-if="foodpantryState == 'On'"><a ui-sref="sitemanagement.editfoodpantry" > Edit </a></td>
+      </tr>
+
+
+      <tr>
+        <td>Soup Kitchen</td>
+  
+            <td ng-if="soupkitchenState  == 'Off' ">Off</td>
+            <td ng-if="soupkitchenState  == 'Off'"><a ui-sref="sitemanagement.addsoupkitchen" >Add</a></td>  
+ 
+            <td ng-if="soupkitchenState  == 'On'">On</td>
+            <td ng-if="soupkitchenState === 'On' && count > 1"><a href="" ng-click="deleteSoupkitchen()">Delete</a></td>  
+                    <td ng-if="soupkitchenState === 'On' && count== 1">Not Available</td> 
+            <td ng-if="soupkitchenState == 'Off'">Not Available </td>
+            <td ng-if="soupkitchenState== 'On'"><a ui-sref="sitemanagement.editsoupkitchen" >  Edit </a></td>
+      </tr>
+
+
+    </tbody>
+  </table>
+   		</div>
+	</div>
+
+
+
+  </div>
+</div>

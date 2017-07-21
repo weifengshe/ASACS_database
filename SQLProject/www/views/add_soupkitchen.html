@@ -1,0 +1,47 @@
+<div class="panel panel-default" >
+  <div class="panel-heading">
+    <h3 class="panel-title">Add Soup Kitchen</h3>
+  </div>
+  <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-6">
+          <form role="form" >
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" placeholder="Enter Description"  class="form-control" ng-model="soupkitchen.description" required>
+            </div>
+            <div class="form-group">
+              <label for="hoursoperation">hoursoperation</label>
+              <input type="text" placeholder="hoursoperation" id="hoursoperation" class="form-control" ng-model="soupkitchen.hoursoperation" required>
+            </div>
+            <div class="form-group">
+              <label for="conditionsforuse">conditionsforuse</label>
+              <input type="text" placeholder="conditionsforuse" id="conditionsforuse" class="form-control" ng-model="soupkitchen.conditionsforuse" required>
+            </div>
+            <div class="form-group">
+              <label for="capacity">capacity</label>
+              <input type="text" placeholder="capacity" id="capacity" class="form-control" ng-model="soupkitchen.capacity" required>
+            </div>
+          <div class="form-group">
+              <label for="seatcount">seatcount</label>
+              <input type="text" placeholder="seatcount" id="seatcount" class="form-control" ng-model="soupkitchen.seatcount" required>
+            </div>
+      
+
+
+            <button class="btn btn-default" type="submit"  ng-click="addSoupkitchen()" >Submit</button>
+           
+          </form>
+        </div>
+       </div>
+
+
+
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,78 @@
+<div class="panel panel-default"  ng-init="initFoodBank()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add Item</h3>
+  </div>
+  <div class="panel-body">
+
+<p style="color:red" ng-if="successresult == 'on'">Sucessfully add item</p>
+
+<p  style="color:red" ng-if="successresult == 'off'">Failed to add item</p>
+
+      <div class="row">
+        <div class="col-md-6">
+          <form role="form" >
+            <div class="form-group">
+              <label for="name">name</label>
+              <input type="text" placeholder="Enter name"  id="name"  class="form-control" ng-model="item.name"  required>
+            </div>
+
+            <div class="form-group">
+              <label for="numberofunits">numberofunits</label>
+              <input type="text" placeholder="numberofunits" id="numberofunits" class="form-control" ng-model="item.numberofunits" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="categoryname">categoryname</label>
+              <input type="radio" value="Food" id="categoryname"  ng-model="item.categoryname" > Food
+              <input type="radio" value="Supplies" id="categoryname"  ng-model="item.categoryname" > Supplies
+            </div>
+            
+            <div class="form-group">
+              <div ng-if ="item.categoryname == 'Food'">
+              <label for="subcategoryname">subcategoryname for food</label>
+              <input type="radio"  value="Vegetables"id="subcategoryname"  ng-model="item.subcategoryname" >Vegetables
+              <input type="radio"  value="nuts"id="subcategoryname"  ng-model="item.subcategoryname" >nuts/grains/beans
+              <input type="radio"  value="Meat"id="subcategoryname"  ng-model="item.subcategoryname" >Meat/seafood
+              <input type="radio"  value="Dairy"id="subcategoryname"  ng-model="item.subcategoryname" >
+              Dairy/eggs
+              <input type="radio"  value="Sauce"id="subcategoryname"  ng-model="item.subcategoryname" >Sauce/Condiment/Seasoning
+              <input type="radio"  value="Juice"id="subcategoryname"  ng-model="item.subcategoryname" >Juice/Drink
+            </div>
+              
+              <div ng-if ="item.categoryname == 'Supplies'">
+
+              <label for="subcategoryname">subcategoryname for supplies</label>
+              <input type="radio"  value="Personal hygiene"id="subcategoryname"  ng-model="item.subcategoryname" >Personal hygiene
+              <input type="radio"  value="Clothing"id="subcategoryname"  ng-model="item.subcategoryname" >
+             Clothing
+              <input type="radio"  value="Shelter"id="subcategoryname"  ng-model="item.subcategoryname" >Shelter
+              <input type="radio"  value="other"id="subcategoryname"  ng-model="item.subcategoryname" >other
+            </div>
+            </div>
+          <div class="form-group">
+              <label for="expirationdate">expirationdate</label>
+              <input type="text" placeholder="expirationdate" id="expirationdate" class="form-control" ng-model="item.expirationdate" required>
+            </div>
+            <div class="form-group">
+              <label for="storagetype">storagetype</label>
+              <input type="radio" value="Dry Good" id="storagetype"  ng-model="item.storagetype" > Dry Good
+              <input type="radio" value="Refrigerated" id="storagetype"  ng-model="item.storagetype" > Refrigerated
+              <input type="radio" value="Frozen" id="storagetype"  ng-model="item.storagetype" > Frozen
+
+            </div>
+  
+
+            <button class="btn btn-default" type="submit"  ng-click="addItem()" >Submit</button>
+           
+          </form>
+        </div>
+       </div>
+
+
+
+  </div>
+</div>
+
+
+
+

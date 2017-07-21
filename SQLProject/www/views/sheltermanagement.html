@@ -1,0 +1,61 @@
+<div class="panel panel-default" ng-init="getShelter()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Bunks/ Room Information </h3>
+  </div>
+
+
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-10">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Available Male Bunk</th>
+              <th>Available Female Bunk</th>
+              <th>Available Mix Bunk</th>
+              <th>Available Room</th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr >
+
+              <td>{{shelter.capacity_maleBunk - shelter.currentused_maleBunk}}</td>
+              <td>{{shelter.capacity_femaleBunk - shelter.currentused_femaleBunk}}</td>
+              <td>{{shelter.capacity_mixBunk - shelter.currentused_mixBunk}}</td>
+              <td>{{shelter.availableroom ? shelter.availableroom : 0 }}</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+</div>
+
+</div>
+
+
+  <a ui-sref="sitemanagement.checkin">
+    <button type="button" class="btn btn-default btn-lg btn-block" ng-click="">Check In / Add Room Waiting List</button>
+  </a>
+  <a ui-sref="sitemanagement.checkout">
+    <button type="button" class="btn btn-default btn-lg btn-block" ng-click="">Check Out</button>
+  </a>
+
+  <a ui-sref="sitemanagement.modifyroom">
+    <button type="button" class="btn btn-default btn-lg btn-block" ng-click="">Modify Available Room</button>
+  </a>
+
+
+
+
+
+
+
+</div>
+
+
+

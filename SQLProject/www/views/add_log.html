@@ -1,0 +1,52 @@
+<div class="panel panel-default" >
+  <div class="panel-heading">
+    <h3 class="panel-title">Check In Client</h3>
+  </div>
+  <div class="panel-body">
+
+
+  <p style="color:red" ng-if="logvalue.successresult == 'on'">Sucessfully Check In</p>
+
+  <p  style="color:red" ng-if="logvalue.successresult == 'off'">Failed to Check In</p>
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <form role="form" >
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text"  value="1"placeholder="Enter Description"  class="form-control" ng-model="logvalue.description" >
+            </div>
+   
+            <div class="form-group">
+              <label for="male">Please input the number of Male Bunk needed(if applicable)</label>
+              <input type="number" ng-init="logvalue.male=0"  id="male" class="form-control" ng-model="logvalue.male" >
+            </div>
+            <div class="form-group">
+              <label for="female">Please input the number of Female Bunk needed(if applicable)</label>
+              <input type="number" ng-init="logvalue.female=0" id="female" class="form-control" ng-model="logvalue.female" >
+            </div>
+            <div class="form-group">
+              <label for="mix">Please input the number of Mix Bunk needed(if applicable)</label>
+              <input type="number" ng-init="logvalue.mix=0" id="male" class="form-control" ng-model="logvalue.mix" >
+            </div>
+          <div class="form-group">
+              <label for="availableroom">availableroom</label>
+              <input type="number" ng-init="logvalue.availableroom=0" id="availableroom" class="form-control" ng-model="logvalue.availableroom" >
+            </div>
+
+            <button class="btn btn-default" type="submit"  ng-click="addLog()" >Check In</button>
+           
+          </form>
+        </div>
+       </div>
+
+
+
+  </div>
+</div>
+
+
+
+
